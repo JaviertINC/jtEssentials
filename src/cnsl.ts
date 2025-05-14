@@ -42,8 +42,4 @@ export default class cnsl {
     public table(...args: any[]) {
         if (this.config.debug.cnsl) console.table(...args);
     }
-
-    public clear() {
-        if (this.config.debug.cnsl) console.clear();
-    }
 }
