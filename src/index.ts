@@ -3,6 +3,7 @@ import data from "./data";
 import _cnsl from "./cnsl";
 import text from "./text";
 import date from "./date";
+import util from "./util";
 
 /* 
 MIT License
@@ -34,6 +35,7 @@ export default class jtEssentials {
     public cnsl: _cnsl;
     public text = text;
     public date = date;
+    public util = util;
 
     constructor(
         public config: iConfig
