@@ -1,6 +1,9 @@
 import { iConfig } from "./_interfaces";
+import data from "./data";
 
 export default class jtEssentials {    
+    public data = data;
+
     constructor(
         public config: iConfig
     ){
