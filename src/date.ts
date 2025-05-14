@@ -44,17 +44,17 @@ const date = {
     },
 
     time: {
-        add(date: Date, hours: number = 0, minutes: number = 0, seconds: number = 0): Date {
-            date.setHours(date.getHours() + hours);
-            date.setMinutes(date.getMinutes() + minutes);
-            date.setSeconds(date.getSeconds() + seconds);
+        add(date: Date, time: { hours: number, minutes: number, seconds: number } = {hours: 0,minutes: 0,seconds: 0}): Date {
+            date.setHours(date.getHours() + time.hours);
+            date.setMinutes(date.getMinutes() + time.minutes);
+            date.setSeconds(date.getSeconds() + time.seconds);
             return date;
         },
 
-        sub(date: Date, hours: number = 0, minutes: number = 0, seconds: number = 0): Date {
-            date.setHours(date.getHours() - hours);
-            date.setMinutes(date.getMinutes() - minutes);
-            date.setSeconds(date.getSeconds() - seconds);
+        sub(date: Date, time: { hours: number, minutes: number, seconds: number } = {hours: 0,minutes: 0,seconds: 0}): Date {
+            date.setHours(date.getHours() - time.hours);
+            date.setMinutes(date.getMinutes() - time.minutes);
+            date.setSeconds(date.getSeconds() - time.seconds);
             return date;
         }
     },
