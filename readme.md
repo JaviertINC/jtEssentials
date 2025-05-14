@@ -5,7 +5,7 @@
 Este proyecto es una colección de funciones útiles que considero esenciales para el desarrollo de aplicaciones web.
 
 > [!NOTE]
-> Este proyecto está hecho con Typescript e incluye el tipado de las funciones. Si no estás familiarizado con Typescript, puedes consultar la [documentación oficial](https://www.typescriptlang.org/docs/).
+> Este proyecto está hecho con [Typescript](https://www.typescriptlang.org) e incluye las interfaces y el tipado de las funciones.
 
 # Instalación
 Puedes instalar el paquete utilizando npm, yarn o pnpm. Asegúrate de tener uno de estos gestores de paquetes instalado en tu sistema.
@@ -51,12 +51,12 @@ Utilizando la misma instancia de `jtEssentials` que inicializaste anteriormente,
 
 ```typescript
 jtess.cnsl.log('Hola mundo');
-
-let formatedRut = jtess.rut.format('12345678-9');
+let user = jtess.strg.get('user');
+let normalized = jtess.text.normalize('Téxtós cón tíldés nó pérmítídás');
 ```
 
 # Documentación
-Revisa toda la documentación completa de las funciones en la [Wiki del proyecto](https://github.com/JaviertINC/essentials/wiki/Documentaci%C3%B3n).
+Revisa toda la documentación completa de las funciones en la [Wiki del proyecto](https://github.com/JaviertINC/essentials/wiki).
 
 # Dependencias externas de la librería
 - [crypto-js](https://www.npmjs.com/package/crypto-js): Para cifrar y descifrar datos.
