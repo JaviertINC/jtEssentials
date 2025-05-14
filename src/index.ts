@@ -1,11 +1,13 @@
 import { iConfig } from "./_interfaces";
 import data from "./data";
 import _cnsl from "./cnsl";
+import text from "./text";
 
 export default class jtEssentials {
 
     public data = data;
     public cnsl: _cnsl;
+    public text = text;
 
     constructor(
         public config: iConfig
