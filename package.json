@@ -1,0 +1,37 @@
+{
+    "name": "@javiertinc/essentials",
+    "version": "1.0.0",
+    "description": "Una librería con variedad de funciones útiles que considero esenciales en la mayoría de los desarrollos web.",
+    "author": "@JaviertINC",
+    "homepage": "https://javiertinc.cl/lib/essentials",
+    "repository": "github:javiertinc/essentials",
+    "license": "ISC",
+    "keywords": [
+        "javiertinc",
+        "essentials",
+        "typescript",
+        "javascript",
+        "library",
+        "utils",
+        "rut"
+    ],
+    "main": "./index.js",
+    "scripts": {
+        "clear": "rm -r ./dist",
+        "dev": "jtexec ./src/index.ts",
+        "build": "npm run clear && tsc && node ./pkgBuild.js && cp ./readme.md ./dist",
+        "publish": "npm run build && cd dist && npm publish --registry http://localhost:4873",
+        "min": "browserify ./dist/index.js -o ./dist/jt.essentials.bundle.js && uglifyjs ./dist/jt.essentials.bundle.js -o ./dist/jt.essentials.min.js"
+    },
+    "dependencies": {
+        "crypto-js": "^4.2.0",
+        "rxjs": "^7.8.2"
+    },
+    "devDependencies": {
+        "@types/crypto-js": "^4.2.2",
+        "browserify": "^17.0.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "uglify-js": "^3.19.3"
+    }
+}
