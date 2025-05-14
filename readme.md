@@ -4,7 +4,7 @@
 
 Este proyecto es una colección de funciones útiles que considero esenciales para el desarrollo de aplicaciones web.
 
-> ![NOTA]
+> [!NOTE]
 > Este proyecto está hecho con Typescript e incluye el tipado de las funciones. Si no estás familiarizado con Typescript, puedes consultar la [documentación oficial](https://www.typescriptlang.org/docs/).
 
 # Instalación
@@ -56,7 +56,7 @@ let formatedRut = jtess.rut.format('12345678-9');
 ```
 
 # Documentación
-Revisa toda la documentación completa de las funciones en la [Wiki del proyecto](https://github.com/JaviertINC/essentials/wiki).
+Revisa toda la documentación completa de las funciones en la [Wiki del proyecto](https://github.com/JaviertINC/essentials/wiki/Documentaci%C3%B3n).
 
 # Dependencias externas de la librería
 - [crypto-js](https://www.npmjs.com/package/crypto-js): Para cifrar y descifrar datos.
