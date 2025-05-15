@@ -7,7 +7,7 @@ Este proyecto es una colección de funciones útiles que considero esenciales pa
 > [!NOTE]
 > Este proyecto está hecho con [Typescript](https://www.typescriptlang.org) e incluye las interfaces y el tipado de las funciones.
 
-[![Documentación]()](https://github.com/JaviertINC/essentials/wiki)
+[![Documentación](https://raw.githubusercontent.com/JaviertINC/essentials/refs/heads/master/images/jtEssentials-gh-documentacion.png)](https://github.com/JaviertINC/essentials/wiki)
 Revisa toda la documentación completa de las funciones en la [Wiki del proyecto](https://github.com/JaviertINC/essentials/wiki).
 
 
@@ -24,7 +24,7 @@ yarn add @javiertinc/essentials
 pnpm add @javiertinc/essentials
 ```
 
-# Configuración
+[![Configuración](https://raw.githubusercontent.com/JaviertINC/essentials/refs/heads/master/images/jtEssentials-gh-configuracion.png)](https://github.com/JaviertINC/essentials/wiki)
 
 Para utilizar las funciones de este paquete, primero debes importarlas en tu archivo JavaScript o TypeScript. Luego deberás inicializar una instancia con la configuración para tu proyecto.
 
@@ -51,7 +51,7 @@ const jtess = new jtEssentials({
 });
 ```
 
-# Ejemplo básico
+[![Algunos ejemplos](https://raw.githubusercontent.com/JaviertINC/essentials/refs/heads/master/images/jtEssentials-gh-algunos-ejemplos.png)](https://github.com/JaviertINC/essentials/wiki)
 Utilizando la misma instancia de `jtEssentials` que inicializaste anteriormente, puedes utilizar las funciones de la siguiente manera:
 
 ```typescript
@@ -60,6 +60,6 @@ let user = jtess.strg.get('user');
 let normalized = jtess.text.normalize('Téxtós cón tíldés nó pérmítídás');
 ```
 
-# Dependencias externas de la librería
+[![Dependencias externas](https://raw.githubusercontent.com/JaviertINC/essentials/refs/heads/master/images/jtEssentials-gh-dependencias-externas.png)](https://www.npmjs.com/package/@javiertinc/essentials?activeTab=dependencies)
 - [crypto-js](https://www.npmjs.com/package/crypto-js): Para cifrar y descifrar datos.
 - [rxjs](https://www.npmjs.com/package/rxjs): Para la reactividad y la observación de datos.
