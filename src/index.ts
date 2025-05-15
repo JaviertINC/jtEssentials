@@ -5,6 +5,7 @@ import text from "./text";
 import date from "./date";
 import util from "./util";
 import gen from "./gen";
+import _log from "./log";
 
 /* 
 
@@ -40,6 +41,7 @@ export default class jtEssentials {
     public date = date;
     public util = util;
     public gen = gen;
+    public log: _log;
 
     constructor(
         public config: iConfig
@@ -49,5 +51,6 @@ export default class jtEssentials {
         }
 
         this.cnsl = new _cnsl(this.config);
+        this.log = new _log(this.config);
     }
 }

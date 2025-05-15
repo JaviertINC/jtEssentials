@@ -13,5 +13,11 @@ export interface iConfig {
         log: boolean;
         strg: boolean;
         obsv: boolean;
-    }
+    },
+    log_quantity: number;
+}
+
+export interface iLog {
+    project: iConfig['project'];
+    logs: any[];
 }
