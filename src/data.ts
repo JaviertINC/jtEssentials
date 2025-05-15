@@ -1,4 +1,5 @@
 import CryptoJS from 'crypto-js';
+import text from './text';
 
 let salted = 'U2FsdGVkX1';
 
@@ -94,6 +95,10 @@ const data = {
 
     decrypt(content: string, key: string): string {
         return CryptoJS.AES.decrypt(!content.startsWith(salted) ? salted + content : content, key).toString(CryptoJS.enc.Utf8);
+    },
+
+    usid(name: string): string {
+        return CryptoJS.MD5(text.camelCase(name.trim())).toString();
     }
 }
 
