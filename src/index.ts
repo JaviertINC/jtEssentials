@@ -4,8 +4,10 @@ import _cnsl from "./cnsl";
 import text from "./text";
 import date from "./date";
 import util from "./util";
+import gen from "./gen";
 
 /* 
+
 MIT License
 
 Copyright (c) 2025 Luis Cortés (@JaviertINC)
@@ -27,6 +29,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 */
 
 export default class jtEssentials {
@@ -36,6 +39,7 @@ export default class jtEssentials {
     public text = text;
     public date = date;
     public util = util;
+    public gen = gen;
 
     constructor(
         public config: iConfig
