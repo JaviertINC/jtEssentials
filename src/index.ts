@@ -51,6 +51,60 @@ export default class jtEssentials {
         if(!this.config) {
             throw new Error('La configuración es requerida para inicializar la clase.');
         }
+        // Validar la configuración
+        if(!this.config.project) {
+            throw new Error('La configuración del proyecto es requerida.');
+        }
+        if(!this.config.project.name) {
+            throw new Error('El nombre del proyecto es requerido.');
+        }
+        if(!this.config.project.version) {
+            throw new Error('La versión del proyecto es requerida.');
+        }
+        if(!this.config.project.environment) {
+            throw new Error('El entorno del proyecto es requerido.');
+        }
+        if(!this.config.data) {
+            this.config.data = {
+                encrypt: false,
+                key: ''
+            };
+        }
+        if(!this.config.data.encrypt) {
+            this.config.data.encrypt = false;
+        }
+        if(this.config.data.encrypt && !this.config.data.key) {
+            throw new Error('La clave de encriptación es requerida si la encriptación está habilitada.');
+        }
+        if(!this.config.debug) {
+            this.config.debug = {
+                cnsl: false,
+                log: false,
+                strg: false,
+                obsv: false
+            };
+        }
+        if(!this.config.debug.cnsl) {
+            this.config.debug.cnsl = false;
+        }
+        if(!this.config.debug.log) {
+            this.config.debug.log = false;
+        }
+        if(!this.config.debug.strg) {
+            this.config.debug.strg = false;
+        }
+        if(!this.config.debug.obsv) {
+            this.config.debug.obsv = false;
+        }
+        if(!this.config.log_quantity) {
+            this.config.log_quantity = 100;
+        }
+        if(this.config.log_quantity < 0) {
+            throw new Error('La cantidad de registros no puede ser menor a 0.');
+        }
+        if(this.config.log_quantity > 1000) {
+            console.warn('La cantidad de registros es mayor a 1000. Esto puede afectar el rendimiento de la aplicación.');
+        }
 
         this.cnsl = new _cnsl(this.config);
         this.log = new _log(this.config);
