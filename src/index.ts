@@ -6,6 +6,7 @@ import date from "./date";
 import util from "./util";
 import gen from "./gen";
 import _log from "./log";
+import _obsv from "./obsv";
 
 /* 
 
@@ -42,6 +43,7 @@ export default class jtEssentials {
     public util = util;
     public gen = gen;
     public log: _log;
+    public obsv: _obsv;
 
     constructor(
         public config: iConfig
@@ -52,5 +54,6 @@ export default class jtEssentials {
 
         this.cnsl = new _cnsl(this.config);
         this.log = new _log(this.config);
+        this.obsv = new _obsv(this.config);
     }
 }
