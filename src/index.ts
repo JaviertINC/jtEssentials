@@ -7,6 +7,13 @@ import util from "./util";
 import gen from "./gen";
 import _log from "./log";
 import _obsv from "./obsv";
+import _strg from "./strg";
+
+declare global {
+    interface Window {
+        jtEssentialsEvents: Window;
+    }
+}
 
 /* 
 
@@ -44,6 +51,7 @@ export default class jtEssentials {
     public gen = gen;
     public log: _log;
     public obsv: _obsv;
+    public strg: _strg;
 
     constructor(
         public config: iConfig
@@ -109,5 +117,6 @@ export default class jtEssentials {
         this.cnsl = new _cnsl(this.config);
         this.log = new _log(this.config);
         this.obsv = new _obsv(this.config);
+        this.strg = new _strg(this.config);
     }
 }
