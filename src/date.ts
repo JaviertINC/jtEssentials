@@ -44,14 +44,14 @@ const date = {
     },
 
     time: {
-        add(date: Date, time: { hours: number, minutes: number, seconds: number } = {hours: 0,minutes: 0,seconds: 0}): Date {
+        add(date: Date, time: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 }): Date {
             date.setHours(date.getHours() + time.hours);
             date.setMinutes(date.getMinutes() + time.minutes);
             date.setSeconds(date.getSeconds() + time.seconds);
             return date;
         },
 
-        sub(date: Date, time: { hours: number, minutes: number, seconds: number } = {hours: 0,minutes: 0,seconds: 0}): Date {
+        sub(date: Date, time: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 }): Date {
             date.setHours(date.getHours() - time.hours);
             date.setMinutes(date.getMinutes() - time.minutes);
             date.setSeconds(date.getSeconds() - time.seconds);
@@ -105,6 +105,26 @@ const date = {
             days: today.getDate() - birthDate.getDate(),
         };
     },
+
+    /**
+     * Obtiene el nombre del día de la semana en el idioma especificado
+     * @param date - La fecha de la cual obtener el día de la semana
+     * @param locale - El código de idioma (ej: 'es-ES', 'en-US', 'fr-FR')
+     * @returns El nombre del día de la semana en el idioma especificado
+     */
+    getDayOfWeek(date: Date, locale: string = 'es-ES'): string {
+        return date.toLocaleDateString(locale, { weekday: 'long' });
+    },
+
+    /**
+     * Obtiene el nombre del mes en el idioma especificado
+     * @param date - La fecha de la cual obtener el mes
+     * @param locale - El código de idioma (ej: 'es-ES', 'en-US', 'fr-FR')
+     * @returns El nombre del mes en el idioma especificado
+     */
+    getMonth(date: Date, locale: string = 'es-ES'): string {
+        return date.toLocaleDateString(locale, { month: 'long' });
+    }
 }
 
 export default date;
