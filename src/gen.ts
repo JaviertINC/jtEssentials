@@ -1,4 +1,10 @@
 const gen = {
+    /**
+     * Genera una cadena aleatoria de caracteres.
+     * @param length - La longitud de la cadena aleatoria a generar.
+     * @param charset - Cadena opcional que contiene los caracteres a utilizar en la cadena aleatoria.
+     * @returns Una cadena aleatoria de la longitud especificada.
+     **/
     password(
         length: number,
         config?: {
@@ -50,6 +56,11 @@ const gen = {
         return key;
     },
 
+    /**
+     * Genera un texto Lorem Ipsum aleatorio.
+     * @param quantity - Cantidad de palabras a generar (por defecto 100).
+     * @returns Un texto Lorem Ipsum con la cantidad de palabras especificada.
+     **/
     loremIpsum(quantity: number = 100): string {
         /*
             Basado en el Lorem Ipsum Generator de Rick Viscomi
@@ -141,7 +152,14 @@ const gen = {
         return sentences.join(' ');
     },
 
+    /**
+     * Genera una dirección IP aleatoria.
+     **/
     ip: {
+        /**
+         * Genera una dirección IPv4 aleatoria.
+         * @returns Una dirección IPv4 aleatoria en formato 'x.x.x.x'.
+         **/
         v4: () => {
             let result: string[] = [];
             for(let i: number = 0; i < 4; i++){
@@ -149,6 +167,10 @@ const gen = {
             }
             return result.join('.');
         },
+        /**
+         * Genera una dirección IPv6 aleatoria.
+         * @returns Una dirección IPv6 aleatoria en formato 'xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx'.
+         **/
         v6: () => {
             let result: string[] = [];
             for(let i: number = 0; i < 8; i++){

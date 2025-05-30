@@ -1,20 +1,20 @@
 export interface iConfig {
     project: {
-        name: string,
-        version: string,
-        environment: string,
+        name: string, // Nombre del proyecto
+        version: string, // Versión del proyecto
+        environment: string, // Entorno de ejecución (ej: 'development', 'production', 'test')
     },
     data: {
-        encrypt: boolean,
-        key: string,
+        encrypt: boolean, // Controla si los datos se encriptan al guardarlos
+        key: string, // Clave de encriptación para los datos
     },
     debug: {
-        cnsl: boolean,
-        log: boolean,
-        strg: boolean,
-        obsv: boolean
+        cnsl: boolean, // Controla si se muestran los mensajes de consola
+        log: boolean, // Controla si se muetran los logs internos al usar la función log
+        strg: boolean, // Controla si se muestran los mensajes de almacenamiento
+        obsv: boolean // Controla si se muestran los mensajes de observación
     },
-    log_quantity: number
+    log_quantity: number // Cantidad de logs a guardar en el almacenamiento de la sesión
 }
 
 export interface iLog {

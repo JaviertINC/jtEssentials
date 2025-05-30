@@ -13,6 +13,12 @@ function capitalizeWord(word: string): string {
     }).join('');
 }
 const text = {
+    /**
+     * Capitaliza la primera letra de cada palabra en un texto.
+     * @param text - El texto a capitalizar.
+     * @param allWords - Si es true, capitaliza todas las palabras; si es false, solo la primera palabra.
+     * @returns El texto con las palabras capitalizadas.
+     **/
     capitalize(text: string, allWords: boolean = false): string {
         if (allWords) {
             return text
@@ -32,25 +38,50 @@ const text = {
         }
     },
 
+    /**
+     * Convierte un texto a formato CamelCase.
+     * @param text - El texto a convertir.
+     * @returns El texto en formato CamelCase.
+     **/
     camelCase(text: string): string {
         return text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
     },
 
+    /**
+     * Convierte un texto a formato KebabCase.
+     * @param text - El texto a convertir.
+     * @returns El texto en formato KebabCase.
+     **/
     kebabCase(text: string): string {
         return text.toLowerCase().replace(/ /g, '-');
     },
 
+    /**
+     * Convierte un texto a formato SnakeCase.
+     * @param text - El texto a convertir.
+     * @returns El texto en formato SnakeCase.
+     **/
     snakeCase(text: string): string {
         return text.toLowerCase().replace(/ /g, '_');
     },
 
+    /**
+     * Invierte el orden de los caracteres en un texto.
+     * @param text - El texto a invertir.
+     * @returns El texto con los caracteres en orden inverso.
+     **/
     reverse(text: string): string {
         return text.split('').reverse().join('');
     },
 
+    /**
+     * Normaliza un texto eliminando acentos y caracteres especiales.
+     * @param text - El texto a normalizar.
+     * @returns El texto normalizado.
+     **/
     normalize(text: string): string {
         return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g, 'n').replace(/Ñ/g, 'N');
     }
-}
+};
 
 export default text;

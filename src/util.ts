@@ -1,4 +1,14 @@
 const util = {
+    /**
+     * Enmascara un texto con un patrón especifico.
+     * @param text - El texto a enmascarar.
+     * @param mask - El patrón de enmascaramiento. Los caracteres especiales son:
+     *              - '*' para cualquier carácter (incluye números y letras).
+     *              - '0' para un dígito numérico.
+     *              - 'A' para una letra (mayúscula o minúscula, incluyendo acentos).
+     *              - 'X' para un carácter que se mostrará en privado (se muestra como '*' en público).
+     *              - Cualquier otro carácter se mostrará tal cual.
+     **/
     mask(text: string, mask: string, invert: boolean = false): { public: string, private: string } {
         if (invert) {
             text = text.split('').reverse().join('');
@@ -63,10 +73,21 @@ const util = {
         return result;
     },
 
+    /**
+     * Crea un objeto URL a partir de un contenido de texto.
+     * @param content - El contenido del texto.
+     * @param mime - El tipo MIME del contenido (por defecto 'text/plain').
+     * @returns Una URL que representa el contenido del texto.
+     **/
     blob(content: string, mime: string = 'text/plain'): string {
         return URL.createObjectURL(new Blob([content], { type: mime }));
     },
 
+    /**
+     * Descarga un archivo desde una URL.
+     * @param filename - El nombre del archivo a descargar.
+     * @param url - La URL del archivo a descargar.
+     **/
     download(filename: string, url: string): void {
         let a = document.createElement('a');
         a.href = url;
@@ -75,10 +96,18 @@ const util = {
         a.remove();
     },
 
+    /**
+     * Verifica si el dispositivo es móvil.
+     * @returns Verdadero si el dispositivo es móvil, falso en caso contrario.
+     **/
     isMobile(): boolean {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
     },
 
+    /**
+     * Verifica si el dispositivo es una tableta.
+     * @returns Verdadero si el dispositivo es una tableta, falso en caso contrario.
+     **/
     getTheme(): string {
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
