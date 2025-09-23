@@ -1,4 +1,4 @@
-import { iConfig } from "./_interfaces";
+import { iConfig } from "./_interfaces.js";
 
 export default class cnsl {
     constructor(private config: iConfig){}

@@ -1,6 +1,6 @@
-import { iConfig } from "./_interfaces";
-import _cnsl from "./cnsl";
-import _data from "./data";
+import { iConfig } from "./_interfaces.js";
+import _cnsl from "./cnsl.js";
+import _data from "./data.js";
 
 export default class obsv {
     private storeName: string;

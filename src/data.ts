@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import text from './text';
+import text from './text.js';
 
 let salted = 'U2FsdGVkX1';
 

@@ -1,13 +1,13 @@
-import { iConfig } from "./_interfaces";
-import data from "./data";
-import _cnsl from "./cnsl";
-import text from "./text";
-import date from "./date";
-import util from "./util";
-import gen from "./gen";
-import _log from "./log";
-import _obsv from "./obsv";
-import _strg from "./strg";
+import { iConfig } from "./_interfaces.js";
+import data from "./data.js";
+import _cnsl from "./cnsl.js";
+import text from "./text.js";
+import date from "./date.js";
+import util from "./util.js";
+import gen from "./gen.js";
+import _log from "./log.js";
+import _obsv from "./obsv.js";
+import _strg from "./strg.js";
 
 declare global {
     interface Window {

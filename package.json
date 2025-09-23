@@ -1,6 +1,6 @@
 {
     "name": "@javiertinc/essentials",
-    "version": "1.11.0",
+    "version": "1.12.0",
     "description": "Una librería con variedad de funciones útiles que considero esenciales en la mayoría de los desarrollos web.",
     "author": "@JaviertINC",
     "homepage": "https://github.com/JaviertINC/essentials/wiki",
@@ -14,11 +14,18 @@
         "library",
         "utils"
     ],
+    "type": "module",
     "main": "./index.js",
+    "exports": {
+        ".": {
+            "import": "./index.js",
+            "require": "./index.js"
+        }
+    },
     "scripts": {
         "clear": "rm -r ./dist",
         "dev": "jtexec ./src/index.ts",
-        "build": "tsc && node ./pkgBuild.js && cp ./readme.md ./dist",
+        "build": "tsc && node ./pkgBuild.cjs && copy readme.md dist",
         "publish": "npm run build && cd dist && npm publish --registry http://localhost:4873",
         "min": "browserify ./dist/index.js -o ./dist/jt.essentials.bundle.js && uglifyjs ./dist/jt.essentials.bundle.js -o ./dist/jt.essentials.min.js"
     },

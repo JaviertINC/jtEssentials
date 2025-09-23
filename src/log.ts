@@ -1,7 +1,7 @@
-import { iConfig, iLog } from './_interfaces';
-import _cnsl from './cnsl';
-import _data from './data';
-import _text from './text';
+import { iConfig, iLog } from './_interfaces.js';
+import _cnsl from './cnsl.js';
+import _data from './data.js';
+import _text from './text.js';
 
 export default class Log {
     private cnsl: _cnsl;

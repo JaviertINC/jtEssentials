@@ -1,7 +1,7 @@
-import { iConfig, iWatcher } from './_interfaces';
-import _cnsl from './cnsl';
-import _obsv from './obsv';
-import _data from './data';
+import { iConfig, iWatcher } from './_interfaces.js';
+import _cnsl from './cnsl.js';
+import _obsv from './obsv.js';
+import _data from './data.js';
 
 export default class strg {
     private obsv: _obsv;

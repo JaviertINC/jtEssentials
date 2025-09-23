@@ -16,6 +16,8 @@ try {
         'keywords',
         'license',
         'main',
+        'exports',
+        'type',
         'dependencies'
     ];
 
