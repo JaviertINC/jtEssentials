@@ -21,3 +21,7 @@ export interface iLog {
     project: iConfig['project'],
     logs: any[]
 }
+
+export interface iWatcher {
+    subscribe(callback: (data: any) => void): () => void;
+}

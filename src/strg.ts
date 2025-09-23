@@ -1,8 +1,7 @@
-import { iConfig } from './_interfaces';
+import { iConfig, iWatcher } from './_interfaces';
 import _cnsl from './cnsl';
 import _obsv from './obsv';
 import _data from './data';
-import { Observable } from 'rxjs';
 
 export default class strg {
     private obsv: _obsv;
@@ -97,30 +96,36 @@ export default class strg {
      * El observador se activará cuando se detecte una actualización en el store.
      * @param store - El nombre del store a observar.
      * @param from - Desde dónde se está creando el observador (puede ser un nombre de componente, función, etc.).
-     * @returns Un Observable que emite los datos del store cuando se actualiza.
+     * @returns Un objeto Watcher que permite suscribirse a actualizaciones reactivas del store.
      **/
-    public watch(store: string, from: string): Observable<any> {
-        this.config.debug.strg && this.cnsl.log('jtEssentials.strg.watch() • Creando un observador para "' + store + '" desde "' + from + '"');
-        let resourceName = this.getResourceName(store);
-        from = this.config.data.encrypt ? _data.usid(from) : from;
+   public watch(store: string, from: string): iWatcher {
+       this.config.debug.strg && this.cnsl.log('jtEssentials.strg.watch() • Creando un observador para "' + store + '" desde "' + from + '"');
+       let resourceName = this.getResourceName(store);
+       from = this.config.data.encrypt ? _data.usid(from) : from;
 
-        let obsrvble = new Observable((observer) => {
-            this.obsv.add(resourceName, from);
-            let eObsrvr = 'eo-' + resourceName + '@' + from;
-            window.jtEssentialsEvents.addEventListener(eObsrvr, (event: any) => {
-                this.config.debug.strg && this.cnsl.log('jtEssentials.strg.watch() • Se ha detectado una actualización del strg "' + store +'"', event);
-                let data = this.get(store);
-                if(!data) {
-                    this.config.debug.strg && this.cnsl.warn('jtEssentials.strg.watch() • No se encontró el strg', store);
-                    observer.error('No se encontró el strg');
-                }else{
-                    observer.next(data);
-                }
-            });
-        });
+       return {
+           subscribe: (callback: (data: any) => void) => {
+               this.obsv.add(resourceName, from);
+               let eObsrvr = 'eo-' + resourceName + '@' + from;
+               const eventHandler = (event: any) => {
+                   this.config.debug.strg && this.cnsl.log('jtEssentials.strg.watch() • Se ha detectado una actualización del strg "' + store +'"', event);
+                   let data = this.get(store);
+                   if(!data) {
+                       this.config.debug.strg && this.cnsl.warn('jtEssentials.strg.watch() • No se encontró el strg', store);
+                   }else{
+                       callback(data);
+                   }
+               };
+               window.jtEssentialsEvents.addEventListener(eObsrvr, eventHandler);
 
-        return obsrvble;
-    }
+               // Return unsubscribe function
+               return () => {
+                   window.jtEssentialsEvents.removeEventListener(eObsrvr, eventHandler);
+                   this.obsv.remove(resourceName, from);
+               };
+           }
+       };
+   }
 
     /**
      * Elimina un observador de un store específico.
