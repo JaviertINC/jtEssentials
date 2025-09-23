@@ -32,6 +32,13 @@ try {
     }
 
     fs.writeFileSync(path.join(distPath, 'package.json'), JSON.stringify(pkgResult, null, 2), 'utf8');
+
+    // Copy readme.md to dist
+    const readmeSrc = path.resolve(process.cwd(), 'readme.md');
+    const readmeDest = path.join(distPath, 'readme.md');
+    if (fs.existsSync(readmeSrc)) {
+        fs.copyFileSync(readmeSrc, readmeDest);
+    }
 } catch (error) {
     console.error('❌ Error al replicar package.json:', error.message);
     process.exit(1);

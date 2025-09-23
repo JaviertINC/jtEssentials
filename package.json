@@ -25,7 +25,7 @@
     "scripts": {
         "clear": "rm -r ./dist",
         "dev": "jtexec ./src/index.ts",
-        "build": "tsc && node ./pkgBuild.cjs && copy readme.md dist",
+        "build": "tsc && node ./pkgBuild.cjs",
         "publish": "npm run build && cd dist && npm publish --registry http://localhost:4873",
         "min": "browserify ./dist/index.js -o ./dist/jt.essentials.bundle.js && uglifyjs ./dist/jt.essentials.bundle.js -o ./dist/jt.essentials.min.js"
     },
