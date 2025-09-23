@@ -84,4 +84,3 @@ let normalized = jtess.text.normalize('Téxtós cón tíldés nó pérmítídás
 [![Dependencias externas](https://javiertinc.github.io/media/jtEssentials/gh-dependencias-externas.png)](https://www.npmjs.com/package/@javiertinc/essentials?activeTab=dependencies)
 
 - [crypto-js](https://www.npmjs.com/package/crypto-js): Para cifrar y descifrar datos.
-- [rxjs](https://www.npmjs.com/package/rxjs): Para la reactividad y la observación de datos.
