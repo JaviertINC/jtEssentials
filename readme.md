@@ -1,4 +1,4 @@
-[![javiertinc@essentials](https://javiertinc.github.io/media/jtEssentials/gh-header.png)](https://github.com/JaviertINC/essentials)
+[![javiertinc@essentials](https://javiertinc.github.io/media/jtEssentials/gh-header.png)](https://github.com/JaviertINC/jtEssentials)
 
 ¿Cansado de escribir una y otra vez el mismo código para tareas comunes en tus proyectos web? ¿Buscas formas de acelerar tu desarrollo sin sacrificar la calidad?
 
@@ -9,31 +9,31 @@ Es tu **caja de herramientas indispensable** con una colección de funciones y u
 > [!NOTE]
 > Este proyecto está hecho con [Typescript](https://www.typescriptlang.org) e incluye las interfaces y el tipado de las funciones.
 
-[![Documentación](https://javiertinc.github.io/media/jtEssentials/gh-documentacion.png)](https://github.com/JaviertINC/essentials/wiki)
+[![Documentación](https://javiertinc.github.io/media/jtEssentials/gh-documentacion.png)](https://github.com/JaviertINC/jtEssentials/wiki)
 ¿Listo para simplificar tu desarrollo web y liberar todo tu potencial? 🚀
 
 jtEssentials no es solo una colección de funciones; son las herramientas que te harán codificar más rápido, limpio y eficientemente. Pero para descubrir cómo cada una de estas **fascinantes funciones** puede transformar tu flujo de trabajo y resolver esos dolores de cabeza comunes... ¡tienes que explorarlas a fondo!
 
-Sumérgete en la [**Wiki del proyecto**](https://github.com/JaviertINC/essentials/wiki). Allí te espera la guía completa, ejemplos prácticos y todos los secretos para dominar jtEssentials como todo un profesional.
+Sumérgete en la [**Wiki del proyecto**](https://github.com/JaviertINC/jtEssentials/wiki). Allí te espera la guía completa, ejemplos prácticos y todos los secretos para dominar jtEssentials como todo un profesional.
 
-[![Instalación](https://javiertinc.github.io/media/jtEssentials/gh-instalacion.png)](https://github.com/JaviertINC/essentials/wiki)
+[![Instalación](https://javiertinc.github.io/media/jtEssentials/gh-instalacion.png)](https://github.com/JaviertINC/jtEssentials/wiki)
 ¡Empezar con jtEssentials es rápido y sencillo! Solo necesitas un gestor de paquetes como npm, yarn o pnpm. Si ya tienes uno instalado, simplemente ejecuta uno de los siguientes comandos en la raíz de tu proyecto:
 
 ```bash
-npm install @javiertinc/essentials
+npm install @JaviertINC/essentials
 ```
 
 ```bash
-yarn add @javiertinc/essentials
+yarn add @JaviertINC/essentials
 ```
 
 ```bash
-pnpm add @javiertinc/essentials
+pnpm add @JaviertINC/essentials
 ```
 
 ¡Y listo! ¡Ya tienes jtEssentials instalado y preparado para llevar tus proyectos al siguiente nivel!
 
-[![Configuración](https://javiertinc.github.io/media/jtEssentials/gh-configuracion.png)](https://github.com/JaviertINC/essentials/wiki)
+[![Configuración](https://javiertinc.github.io/media/jtEssentials/gh-configuracion.png)](https://github.com/JaviertINC/jtEssentials/wiki)
 
 Para aprovechar al máximo jtEssentials y adaptarlo a las necesidades específicas de tu proyecto, es necesario realizar una configuración inicial. ¡No te preocupes, es un proceso sencillo!
 
@@ -43,7 +43,7 @@ Para aprovechar al máximo jtEssentials y adaptarlo a las necesidades específic
 Aquí tienes un ejemplo de cómo configurar una instancia básica con las secciones principales:
 
 ```typescript
-import jtEssentials from '@javiertinc/essentials';
+import jtEssentials from '@JaviertINC/jtEssentials';
 
 // Configura jtEssentials con los detalles y preferencias de tu proyecto
 const jtess = new jtEssentials({
@@ -70,9 +70,9 @@ const jtess = new jtEssentials({
 });
 ```
 
-¡Y SAS! Ahora puedes usar 'jtess' para acceder a todas las funciones de jtEssentials. Recuerda revisar la [**documentación**](https://github.com/JaviertINC/essentials/wiki) con más detalles sobre cada sección y sus opciones.
+¡Y SAS! Ahora puedes usar 'jtess' para acceder a todas las funciones de jtEssentials. Recuerda revisar la [**documentación**](https://github.com/JaviertINC/jtEssentials/wiki) con más detalles sobre cada sección y sus opciones.
 
-[![Algunos ejemplos](https://javiertinc.github.io/media/jtEssentials/gh-algunos-ejemplos.png)](https://github.com/JaviertINC/essentials/wiki)
+[![Algunos ejemplos](https://javiertinc.github.io/media/jtEssentials/gh-algunos-ejemplos.png)](https://github.com/JaviertINC/jtEssentials/wiki)
 Utilizando la misma instancia de `jtEssentials` que inicializaste anteriormente, puedes utilizar las funciones de la siguiente manera:
 
 ```typescript
@@ -81,6 +81,6 @@ let user = jtess.strg.get('user');
 let normalized = jtess.text.normalize('Téxtós cón tíldés nó pérmítídás');
 ```
 
-[![Dependencias externas](https://javiertinc.github.io/media/jtEssentials/gh-dependencias-externas.png)](https://www.npmjs.com/package/@javiertinc/essentials?activeTab=dependencies)
+[![Dependencias externas](https://javiertinc.github.io/media/jtEssentials/gh-dependencias-externas.png)](https://www.npmjs.com/package/@JaviertINC/jtEssentials?activeTab=dependencies)
 
 - [crypto-js](https://www.npmjs.com/package/crypto-js): Para cifrar y descifrar datos.
