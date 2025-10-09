@@ -20,15 +20,15 @@ Sumérgete en la [**Wiki del proyecto**](https://github.com/JaviertINC/jtEssenti
 ¡Empezar con jtEssentials es rápido y sencillo! Solo necesitas un gestor de paquetes como npm, yarn o pnpm. Si ya tienes uno instalado, simplemente ejecuta uno de los siguientes comandos en la raíz de tu proyecto:
 
 ```bash
-npm install @JaviertINC/essentials
+npm install @javiertinc/essentials
 ```
 
 ```bash
-yarn add @JaviertINC/essentials
+yarn add @javiertinc/essentials
 ```
 
 ```bash
-pnpm add @JaviertINC/essentials
+pnpm add @javiertinc/essentials
 ```
 
 ¡Y listo! ¡Ya tienes jtEssentials instalado y preparado para llevar tus proyectos al siguiente nivel!
@@ -43,7 +43,7 @@ Para aprovechar al máximo jtEssentials y adaptarlo a las necesidades específic
 Aquí tienes un ejemplo de cómo configurar una instancia básica con las secciones principales:
 
 ```typescript
-import jtEssentials from '@JaviertINC/jtEssentials';
+import jtEssentials from '@javiertinc/essentials';
 
 // Configura jtEssentials con los detalles y preferencias de tu proyecto
 const jtess = new jtEssentials({
