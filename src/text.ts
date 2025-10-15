@@ -97,7 +97,7 @@ const text = {
      * @returns El texto normalizado.
      **/
     normalize(text: string): string {
-        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g, 'n').replace(/Ñ/g, 'N').replace(/[^a-zA-Z0-9]/g, '');
+        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g, 'n').replace(/Ñ/g, 'N').replace(/[^a-zA-Z0-9\s]/g, '');
     }
 };
 
