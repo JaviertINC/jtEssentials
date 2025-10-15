@@ -104,12 +104,32 @@ const util = {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
     },
 
-    /**
-     * Verifica si el dispositivo es una tableta.
-     * @returns Verdadero si el dispositivo es una tableta, falso en caso contrario.
-     **/
-    getTheme(): string {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    theme: {
+        /**
+         * Obtiene el theme configurado en el HTML <html theme="{value}">
+         * @returns string
+         */
+        get: (): string => {
+            let attr = window.document.documentElement.getAttribute('theme');
+            return  attr ? attr : 'light';
+        },
+
+        /**
+         * Establece el theme en el HTML <html theme="{value}">
+         * @param theme string
+         */
+        set: (theme: string) => {
+            window.document.documentElement.setAttribute('theme', theme);
+        },
+
+        /**
+         * Obtiene el theme configurado en el navegador.
+         * @returns 'dark' | 'light'
+         */
+
+        browser: (): 'dark' | 'light' => {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
     }
 }
 
