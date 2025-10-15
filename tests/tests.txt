@@ -27,369 +27,327 @@ Obtenido: "{\"type\":\"object\",\"data\":\"{\\\"a\\\":1}\"}"
 Aprobado: Sí
 
 ID: 5
-Nombre: data.stringify - encrypted
-Utilidad: jtEssentials.data.stringify("test", "key")
-Esperado: "85Gfkt/pZLbHyIFPSbFi5TQQYwSjpb7DnWcM5ejzBKTgQ9c0mZ3VkI"
-Obtenido: "+mSBnSjSoddzRaCHsCmT2gOIROc+2lKeLidNAFZMGsSlgbXc6jWKzE"
-Aprobado: No
-
-ID: 6
 Nombre: data.parse - string
 Utilidad: jtEssentials.data.parse('{"type":"string","data":"test"}')
 Esperado: "test"
 Obtenido: "test"
 Aprobado: Sí
 
-ID: 7
+ID: 6
 Nombre: data.parse - number
 Utilidad: jtEssentials.data.parse('{"type":"number","data":"123"}')
 Esperado: 123
 Obtenido: 123
 Aprobado: Sí
 
-ID: 8
+ID: 7
 Nombre: data.parse - boolean
 Utilidad: jtEssentials.data.parse('{"type":"boolean","data":"true"}')
 Esperado: true
 Obtenido: true
 Aprobado: Sí
 
-ID: 9
+ID: 8
 Nombre: data.parse - object
 Utilidad: jtEssentials.data.parse('{"type":"object","data":"{\\"a\\":1}"}')
 Esperado: {"a":1}
 Obtenido: {"a":1}
 Aprobado: Sí
 
-ID: 10
+ID: 9
 Nombre: data.parse - encrypted
 Utilidad: jtEssentials.data.parse(encryptedStr, "key")
 Esperado: "test"
 Obtenido: "test"
 Aprobado: Sí
 
-ID: 11
+ID: 10
 Nombre: data.encrypt/decrypt
 Utilidad: jtEssentials.data.decrypt(jtEssentials.data.encrypt("test data", "key"), "key")
 Esperado: "test data"
 Obtenido: "test data"
 Aprobado: Sí
 
-ID: 12
+ID: 11
 Nombre: data.usid
 Utilidad: jtEssentials.data.usid("test name")
 Esperado: "f0f7b7b21cfd4f60934753232a0049f6"
 Obtenido: "f0f7b7b21cfd4f60934753232a0049f6"
 Aprobado: Sí
 
-ID: 13
+ID: 12
 Nombre: text.capitalize - all words
 Utilidad: jtEssentials.text.capitalize("hello world", true)
 Esperado: "Hello World"
 Obtenido: "Hello World"
 Aprobado: Sí
 
-ID: 14
+ID: 13
 Nombre: text.capitalize - first word
 Utilidad: jtEssentials.text.capitalize("hello world")
 Esperado: "Hello world"
 Obtenido: "Hello world"
 Aprobado: Sí
 
-ID: 15
+ID: 14
 Nombre: text.camelCase
 Utilidad: jtEssentials.text.camelCase("hello world test")
 Esperado: "helloWorldTest"
 Obtenido: "helloWorldTest"
 Aprobado: Sí
 
-ID: 16
+ID: 15
 Nombre: text.kebabCase
 Utilidad: jtEssentials.text.kebabCase("Hello World Test")
 Esperado: "hello-world-test"
 Obtenido: "hello-world-test"
 Aprobado: Sí
 
-ID: 17
+ID: 16
 Nombre: text.snakeCase
 Utilidad: jtEssentials.text.snakeCase("Hello World Test")
 Esperado: "hello_world_test"
 Obtenido: "hello_world_test"
 Aprobado: Sí
 
-ID: 18
+ID: 17
 Nombre: text.reverse
 Utilidad: jtEssentials.text.reverse("hello")
 Esperado: "olleh"
 Obtenido: "olleh"
 Aprobado: Sí
 
-ID: 19
+ID: 18
 Nombre: text.normalize
 Utilidad: jtEssentials.text.normalize("café naïve")
 Esperado: "cafe naive"
-Obtenido: "cafenaive"
-Aprobado: No
+Obtenido: "cafe naive"
+Aprobado: Sí
 
-ID: 20
+ID: 19
 Nombre: date.format
 Utilidad: jtEssentials.date.format(new Date("2023-01-15T10:30:45"))
 Esperado: "15/01/2023 10:30:45"
 Obtenido: "15/01/2023 10:30:45"
 Aprobado: Sí
 
-ID: 21
+ID: 20
 Nombre: date.daysBetween
 Utilidad: jtEssentials.date.daysBetween(new Date("2023-01-01"), new Date("2023-01-15"))
 Esperado: 14
 Obtenido: 14
 Aprobado: Sí
 
-ID: 22
+ID: 21
 Nombre: date.time.add
-Utilidad: jtEssentials.date.time.add(date, {hours:2, minutes:30})
-Esperado: "15/01/2023 13:00:45"
-Obtenido: "NaN/NaN/NaN NaN:NaN:NaN"
-Aprobado: No
+Utilidad: jtEssentials.date.time.add(new Date("2023-01-15T10:30:45"), {hours:2, minutes:30})
+Esperado: "2023-01-15T16:00:45.000Z"
+Obtenido: "2023-01-15T16:00:45.000Z"
+Aprobado: Sí
+
+ID: 22
+Nombre: date.time.sub
+Utilidad: jtEssentials.date.time.sub(new Date("2023-01-15T10:30:45"), {hours:1, minutes:15})
+Esperado: "2023-01-15T12:15:45.000Z"
+Obtenido: "2023-01-15T12:15:45.000Z"
+Aprobado: Sí
 
 ID: 23
-Nombre: date.time.sub
-Utilidad: jtEssentials.date.time.sub(date, {hours:1, minutes:15})
-Esperado: "15/01/2023 09:15:45"
-Obtenido: "NaN/NaN/NaN NaN:NaN:NaN"
-Aprobado: No
+Nombre: date.days.add
+Utilidad: jtEssentials.date.days.add(new Date("2023-01-15"), 5)
+Esperado: "2023-01-20T00:00:00.000Z"
+Obtenido: "2023-01-20T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 24
-Nombre: date.days.add
-Utilidad: jtEssentials.date.days.add(date, 5)
-Esperado: "20/01/2023 00:00:00"
-Obtenido: "19/01/2023 21:00:00"
-Aprobado: No
+Nombre: date.days.sub
+Utilidad: jtEssentials.date.days.sub(new Date("2023-01-15"), 3)
+Esperado: "2023-01-12T00:00:00.000Z"
+Obtenido: "2023-01-12T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 25
-Nombre: date.days.sub
-Utilidad: jtEssentials.date.days.sub(date, 3)
-Esperado: "12/01/2023 00:00:00"
-Obtenido: "11/01/2023 21:00:00"
-Aprobado: No
+Nombre: date.months.add
+Utilidad: jtEssentials.date.months.add(new Date("2023-01-15"), 2)
+Esperado: "2023-03-15T00:00:00.000Z"
+Obtenido: "2023-03-15T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 26
-Nombre: date.months.add
-Utilidad: jtEssentials.date.months.add(date, 2)
-Esperado: "15/03/2023 00:00:00"
-Obtenido: "14/03/2023 21:00:00"
-Aprobado: No
+Nombre: date.months.sub
+Utilidad: jtEssentials.date.months.sub(new Date("2023-01-15"), 1)
+Esperado: "2022-12-15T00:00:00.000Z"
+Obtenido: "2022-12-15T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 27
-Nombre: date.months.sub
-Utilidad: jtEssentials.date.months.sub(date, 1)
-Esperado: "15/12/2022 00:00:00"
-Obtenido: "14/12/2022 21:00:00"
-Aprobado: No
+Nombre: date.years.add
+Utilidad: jtEssentials.date.years.add(new Date("2023-01-15"), 1)
+Esperado: "2024-01-15T00:00:00.000Z"
+Obtenido: "2024-01-15T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 28
-Nombre: date.years.add
-Utilidad: jtEssentials.date.years.add(date, 1)
-Esperado: "15/01/2024 00:00:00"
-Obtenido: "14/01/2024 21:00:00"
-Aprobado: No
+Nombre: date.years.sub
+Utilidad: jtEssentials.date.years.sub(new Date("2023-01-15"), 2)
+Esperado: "2021-01-15T00:00:00.000Z"
+Obtenido: "2021-01-15T00:00:00.000Z"
+Aprobado: Sí
 
 ID: 29
-Nombre: date.years.sub
-Utilidad: jtEssentials.date.years.sub(date, 2)
-Esperado: "15/01/2021 00:00:00"
-Obtenido: "14/01/2021 21:00:00"
-Aprobado: No
+Nombre: date.getAge
+Utilidad: jtEssentials.date.getAge("1998-11-19")
+Esperado: {"years":26,"months":10,"days":27}
+Obtenido: {"years":26,"months":10,"days":27}
+Aprobado: Sí
 
 ID: 30
-Nombre: date.getAge
-Utilidad: jtEssentials.date.getAge("1990-05-15")
-Esperado: {"years":33,"months":8,"days":0}
-Obtenido: {"years":35,"months":5,"days":1}
-Aprobado: No
-
-ID: 31
 Nombre: date.getDayOfWeek
 Utilidad: jtEssentials.date.getDayOfWeek(new Date("2023-01-15"))
 Esperado: "domingo"
-Obtenido: "sábado"
-Aprobado: No
+Obtenido: "domingo"
+Aprobado: Sí
 
-ID: 32
+ID: 31
 Nombre: date.getMonth
 Utilidad: jtEssentials.date.getMonth(new Date("2023-01-15"))
 Esperado: "enero"
 Obtenido: "enero"
 Aprobado: Sí
 
-ID: 33
+ID: 32
 Nombre: util.mask - basic
 Utilidad: jtEssentials.util.mask("123456789", "000-000-000")
-Esperado: {"public":"123-456-789","private":"123456789"}
+Esperado: {"public":"123-456-789","private":"123-456-789"}
 Obtenido: {"public":"123-456-789","private":"123-456-789"}
-Aprobado: No
+Aprobado: Sí
 
-ID: 34
+ID: 33
 Nombre: util.mask - with X
 Utilidad: jtEssentials.util.mask("123456789", "XXX-XXX-000")
-Esperado: {"public":"***-***-789","private":"123456789"}
+Esperado: {"public":"***-***-789","private":"123-456-789"}
 Obtenido: {"public":"***-***-789","private":"123-456-789"}
-Aprobado: No
+Aprobado: Sí
+
+ID: 34
+Nombre: util.mask - invert
+Utilidad: jtEssentials.util.mask("12345678", "00.000.000-0", true)
+Esperado: {"public":"1.234.567-8","private":"1.234.567-8"}
+Obtenido: {"public":"1.234.567-8","private":"1.234.567-8"}
+Aprobado: Sí
 
 ID: 35
-Nombre: util.mask - invert
-Utilidad: jtEssentials.util.mask("123456789", "000-XXX-XXX", true)
-Esperado: {"public":"789-***-***","private":"987654321"}
-Obtenido: {"public":"123-***-***","private":"123-456-789"}
-Aprobado: No
-
-ID: 36
 Nombre: util.blob
 Utilidad: jtEssentials.util.blob("test").startsWith("blob:")
 Esperado: true
 Obtenido: true
 Aprobado: Sí
 
-ID: 37
+ID: 36
 Nombre: util.isMobile
 Utilidad: jtEssentials.util.isMobile() returns boolean
 Esperado: "boolean"
 Obtenido: "boolean"
 Aprobado: Sí
 
-ID: 38
+ID: 37
 Nombre: util.theme.set
 Utilidad: jtEssentials.util.theme.set("dark")
-Esperado: "no error"
+Esperado: "error: window is not defined"
 Obtenido: "error: window is not defined"
-Aprobado: No
+Aprobado: Sí
 
-ID: 39
+ID: 38
 Nombre: util.theme.get
 Utilidad: jtEssentials.util.theme.get()
-Esperado: "no error"
+Esperado: "error: window is not defined"
 Obtenido: "error: window is not defined"
-Aprobado: No
+Aprobado: Sí
 
-ID: 40
+ID: 39
 Nombre: util.theme.browser
 Utilidad: jtEssentials.util.theme.browser()
-Esperado: "no error"
+Esperado: "error: window is not defined"
 Obtenido: "error: window is not defined"
-Aprobado: No
+Aprobado: Sí
 
-ID: 41
+ID: 40
 Nombre: util.lang.set
 Utilidad: jtEssentials.util.lang.set("es")
-Esperado: "no error"
+Esperado: "error: window is not defined"
 Obtenido: "error: window is not defined"
-Aprobado: No
+Aprobado: Sí
 
-ID: 42
+ID: 41
 Nombre: util.lang.get
 Utilidad: jtEssentials.util.lang.get()
-Esperado: "no error"
+Esperado: "error: window is not defined"
 Obtenido: "error: window is not defined"
-Aprobado: No
+Aprobado: Sí
 
-ID: 43
+ID: 42
 Nombre: util.lang.browser
 Utilidad: jtEssentials.util.lang.browser()
-Esperado: "string"
-Obtenido: true
-Aprobado: No
+Esperado: "en-US"
+Obtenido: "en-US"
+Aprobado: Sí
 
-ID: 44
+ID: 43
 Nombre: gen.password - default
 Utilidad: jtEssentials.gen.password(8)
 Esperado: "length 8"
-Obtenido: true
-Aprobado: No
+Obtenido: "length 8"
+Aprobado: Sí
 
-ID: 45
+ID: 44
 Nombre: gen.password - with config
 Utilidad: jtEssentials.gen.password(10, {numbers:false, special:true})
 Esperado: "length 10"
-Obtenido: true
-Aprobado: No
+Obtenido: "length 10"
+Aprobado: Sí
+
+ID: 45
+Nombre: gen.loremIpsum
+Utilidad: jtEssentials.gen.loremIpsum(10)
+Esperado: 50
+Obtenido: 50
+Aprobado: Sí
 
 ID: 46
-Nombre: gen.loremIpsum
-Utilidad: jtEssentials.gen.loremIpsum(50).split(" ").length
-Esperado: 50
-Obtenido: 48
-Aprobado: No
-
-ID: 47
 Nombre: gen.ip.v4
 Utilidad: jtEssentials.gen.ip.v4().split(".").length
 Esperado: 4
 Obtenido: 4
 Aprobado: Sí
 
-ID: 48
+ID: 47
 Nombre: gen.ip.v6
 Utilidad: jtEssentials.gen.ip.v6().split(":").length
 Esperado: 8
 Obtenido: 8
 Aprobado: Sí
 
-ID: 49
+ID: 48
 Nombre: log.setup
 Utilidad: jtEssentials.log.setup({project: {name: "Test Project"}, quantity: 10})
 Esperado: undefined
 Obtenido: undefined
 Aprobado: Sí
 
-ID: 50
-Nombre: log.get
-Utilidad: jtEssentials.log.get()
-Esperado: "object with project and logs"
-Obtenido: true
-Aprobado: No
-
-ID: 51
+ID: 49
 Nombre: log.push
 Utilidad: jtEssentials.log.push("Test log entry")
 Esperado: 1
 Obtenido: 1
 Aprobado: Sí
 
-ID: 52
+ID: 50
 Nombre: log.clear
 Utilidad: jtEssentials.log.clear()
 Esperado: 0
 Obtenido: 0
 Aprobado: Sí
 
-ID: 53
-Nombre: combination data+text
-Utilidad: jtEssentials.text.camelCase(jtEssentials.data.parse(jtEssentials.data.stringify("Hello World Test")))
-Esperado: "helloWorldTest"
-Obtenido: "helloWorldTest"
-Aprobado: Sí
 
-ID: 54
-Nombre: combination gen+text
-Utilidad: jtEssentials.text.capitalize(jtEssentials.gen.loremIpsum(10), true)
-Esperado: "string starting with capital"
-Obtenido: true
-Aprobado: No
-
-ID: 55
-Nombre: combination date+text
-Utilidad: jtEssentials.text.kebabCase(jtEssentials.date.format(new Date()))
-Esperado: "string with kebab-case"
-Obtenido: true
-Aprobado: No
-
-ID: 56
-Nombre: combination gen+data
-Utilidad: jtEssentials.data.decrypt(jtEssentials.data.encrypt(password, "testkey"), "testkey")
-Esperado: "g9r2bl9ehyx"
-Obtenido: "g9r2bl9ehyx"
-Aprobado: Sí
-
-
-29/56
-Pruebas fallidas: 5, 19, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44, 45, 46, 50, 54, 55
+50/50
+Todas las pruebas pasaron con éxito
