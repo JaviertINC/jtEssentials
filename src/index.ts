@@ -42,4 +42,4 @@ const jtEssentials = {
 
 export default jtEssentials;
 
-export * from './_interfaces';
+export * from './_interfaces.js';
