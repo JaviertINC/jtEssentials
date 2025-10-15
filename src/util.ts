@@ -109,9 +109,8 @@ const util = {
          * Obtiene el theme configurado en el HTML <html theme="{value}">
          * @returns string
          */
-        get: (): string => {
-            let attr = window.document.documentElement.getAttribute('theme');
-            return  attr ? attr : 'light';
+        get: (): string | null => {
+            return window.document.documentElement.getAttribute('theme');
         },
 
         /**
