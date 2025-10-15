@@ -55,10 +55,11 @@ const date = {
          * @param time.seconds - Segundos a sumar
          * @returns La nueva fecha con el tiempo sumado
          **/
-        add(date: Date, time: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 }): Date {
-            date.setHours(date.getHours() + time.hours);
-            date.setMinutes(date.getMinutes() + time.minutes);
-            date.setSeconds(date.getSeconds() + time.seconds);
+        add(date: Date, time: { hours?: number, minutes?: number, seconds?: number } = {}): Date {
+            const { hours = 0, minutes = 0, seconds = 0 } = time;
+            date.setHours(date.getHours() + hours);
+            date.setMinutes(date.getMinutes() + minutes);
+            date.setSeconds(date.getSeconds() + seconds);
             return date;
         },
 
@@ -71,10 +72,11 @@ const date = {
          * @param time.seconds - Segundos a restar
          * @returns La nueva fecha con el tiempo restado
          **/
-        sub(date: Date, time: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 }): Date {
-            date.setHours(date.getHours() - time.hours);
-            date.setMinutes(date.getMinutes() - time.minutes);
-            date.setSeconds(date.getSeconds() - time.seconds);
+        sub(date: Date, time: { hours?: number, minutes?: number, seconds?: number } = {}): Date {
+            const { hours = 0, minutes = 0, seconds = 0 } = time;
+            date.setHours(date.getHours() - hours);
+            date.setMinutes(date.getMinutes() - minutes);
+            date.setSeconds(date.getSeconds() - seconds);
             return date;
         }
     },
@@ -87,8 +89,10 @@ const date = {
          * @returns La nueva fecha con los días sumados
          **/
         add(date: Date, days: number): Date {
-            date.setDate(date.getDate() + days);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCDate(newDate.getUTCDate() + days);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         },
 
         /**
@@ -98,8 +102,10 @@ const date = {
          * @returns La nueva fecha con los días restados
          **/
         sub(date: Date, days: number): Date {
-            date.setDate(date.getDate() - days);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCDate(newDate.getUTCDate() - days);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         }
     },
 
@@ -112,8 +118,10 @@ const date = {
          * @returns La nueva fecha con los meses sumados
          **/
         add(date: Date, months: number): Date {
-            date.setMonth(date.getMonth() + months);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCMonth(newDate.getUTCMonth() + months);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         },
 
         /**
@@ -123,8 +131,10 @@ const date = {
          * @returns La nueva fecha con los meses restados
          **/
         sub(date: Date, months: number): Date {
-            date.setMonth(date.getMonth() - months);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCMonth(newDate.getUTCMonth() - months);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         }
     },
 
@@ -136,8 +146,10 @@ const date = {
          * @returns La nueva fecha con los años sumados
          **/
         add(date: Date, years: number): Date {
-            date.setFullYear(date.getFullYear() + years);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCFullYear(newDate.getUTCFullYear() + years);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         },
 
         /**
@@ -147,8 +159,10 @@ const date = {
          * @returns La nueva fecha con los años restados
          **/
         sub(date: Date, years: number): Date {
-            date.setFullYear(date.getFullYear() - years);
-            return date;
+            const newDate = new Date(date);
+            newDate.setUTCFullYear(newDate.getUTCFullYear() - years);
+            newDate.setUTCHours(0, 0, 0, 0);
+            return newDate;
         }
     },
 
@@ -160,11 +174,19 @@ const date = {
     getAge(birthdate: string): { years: number; months: number; days: number } {
         let today = new Date();
         let birthDate = new Date(birthdate);
-        return {
-            years: today.getFullYear() - birthDate.getFullYear(),
-            months: today.getMonth() - birthDate.getMonth(),
-            days: today.getDate() - birthDate.getDate(),
-        };
+        let years = today.getFullYear() - birthDate.getFullYear();
+        let months = today.getMonth() - birthDate.getMonth();
+        let days = today.getDate() - birthDate.getDate();
+        if (months < 0 || (months === 0 && days < 0)) {
+            years--;
+            months += 12;
+        }
+        if (days < 0) {
+            months--;
+            const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, birthDate.getDate());
+            days = Math.floor((today.getTime() - lastMonth.getTime()) / (1000 * 60 * 60 * 24));
+        }
+        return { years, months, days };
     },
 
     /**
@@ -174,7 +196,9 @@ const date = {
      * @returns El nombre del día de la semana en el idioma especificado
      **/
     getDayOfWeek(date: Date, locale: string = 'es-ES'): string {
-        return date.toLocaleDateString(locale, { weekday: 'long' });
+        // Create a new date object to avoid modifying the original
+        const utcDate = new Date(date.getTime() + (date.getTimezoneOffset() * 60000));
+        return utcDate.toLocaleDateString(locale, { weekday: 'long' });
     },
 
     /**
