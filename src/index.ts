@@ -1,6 +1,4 @@
-import { iConfig } from "./_interfaces.js";
 import data from "./data.js";
-import _cnsl from "./cnsl.js";
 import text from "./text.js";
 import date from "./date.js";
 import util from "./util.js";
@@ -33,44 +31,15 @@ SOFTWARE.
 
 */
 
-export default class jtEssentials {
-
-    public data = data;
-    public cnsl: _cnsl;
-    public text = text;
-    public date = date;
-    public util = util;
-    public gen = gen;
-    public log = log;
-
-    constructor(
-        public config: iConfig
-    ){
-        if(!this.config) {
-            throw new Error('La configuración es requerida para inicializar la clase.');
-        }
-        // Validar la configuración
-        if(!this.config.project) {
-            throw new Error('La configuración del proyecto es requerida.');
-        }
-        if(!this.config.project.name) {
-            throw new Error('El nombre del proyecto es requerido.');
-        }
-        if(!this.config.project.version) {
-            throw new Error('La versión del proyecto es requerida.');
-        }
-        if(!this.config.project.environment) {
-            throw new Error('El entorno del proyecto es requerido.');
-        }
-        if(!this.config.debug) {
-            this.config.debug = {
-                cnsl: false
-            };
-        }
-        if(!this.config.debug.cnsl) {
-            this.config.debug.cnsl = false;
-        }
-
-        this.cnsl = new _cnsl(this.config);
-    }
+const jtEssentials = {
+    data: data,
+    text: text,
+    date: date,
+    util: util,
+    gen: gen,
+    log: log
 }
+
+export default jtEssentials;
+
+export * from './_interfaces';

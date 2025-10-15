@@ -1,5 +1,4 @@
 import { iLog } from './_interfaces.js';
-import _cnsl from './cnsl.js';
 import _data from './data.js';
 import _text from './text.js';
 
