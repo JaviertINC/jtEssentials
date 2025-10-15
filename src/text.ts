@@ -39,30 +39,47 @@ const text = {
     },
 
     /**
-     * Convierte un texto a formato CamelCase.
+     * Convierte un texto a formato CamelCase y elimina carácteres especiales.
      * @param text - El texto a convertir.
      * @returns El texto en formato CamelCase.
      **/
     camelCase(text: string): string {
-        return text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+        return text.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+(.)/g, (m, chr) => chr.toUpperCase());
     },
 
     /**
-     * Convierte un texto a formato KebabCase.
+     * Convierte un texto a formato KebabCase y elimina los carácteres especiales
      * @param text - El texto a convertir.
      * @returns El texto en formato KebabCase.
      **/
     kebabCase(text: string): string {
-        return text.toLowerCase().replace(/ /g, '-');
+        return text.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
     },
 
     /**
-     * Convierte un texto a formato SnakeCase.
+     * Convierte un texto a formato SnakeCase y elimina carácteres especiales
      * @param text - El texto a convertir.
      * @returns El texto en formato SnakeCase.
      **/
     snakeCase(text: string): string {
-        return text.toLowerCase().replace(/ /g, '_');
+        return text.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '_')
+        .replace(/^-+|-+$/g, '')
+        .replace(/_+/g, '_')
+        .replace(/-+/g, '_');
     },
 
     /**
@@ -80,7 +97,7 @@ const text = {
      * @returns El texto normalizado.
      **/
     normalize(text: string): string {
-        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g, 'n').replace(/Ñ/g, 'N');
+        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g, 'n').replace(/Ñ/g, 'N').replace(/[^a-zA-Z0-9]/g, '');
     }
 };
 
