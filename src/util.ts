@@ -130,6 +130,32 @@ const util = {
         browser: (): 'dark' | 'light' => {
             return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
+    },
+
+    lang: {
+        /** 
+         * Obtiene el idioma configurado en el HTML <html lang="{value}">
+         * @returns string
+         */
+        get: (): string | null => {
+            return window.document.documentElement.getAttribute('lang');
+        },
+
+        /**
+         * Establece el idioma en el HTML <html lang="{value}">
+         * @param lang 
+         */
+        set: (lang: string) => {
+            window.document.documentElement.setAttribute('lang', lang);
+        },
+
+        /**
+         * Obtiene el idioma configurado en el navegador.
+         * @returns string
+         */
+        browser: () => {
+            return navigator.language;
+        }
     }
 }
 
