@@ -6,14 +6,6 @@ import date from "./date.js";
 import util from "./util.js";
 import gen from "./gen.js";
 import log from "./log.js";
-import _obsv from "./obsv.js";
-import _strg from "./strg.js";
-
-declare global {
-    interface Window {
-        jtEssentialsEvents: Window;
-    }
-}
 
 /* 
 
@@ -50,8 +42,6 @@ export default class jtEssentials {
     public util = util;
     public gen = gen;
     public log = log;
-    public obsv: _obsv;
-    public strg: _strg;
 
     constructor(
         public config: iConfig
@@ -72,37 +62,15 @@ export default class jtEssentials {
         if(!this.config.project.environment) {
             throw new Error('El entorno del proyecto es requerido.');
         }
-        if(!this.config.data) {
-            this.config.data = {
-                encrypt: false,
-                key: ''
-            };
-        }
-        if(!this.config.data.encrypt) {
-            this.config.data.encrypt = false;
-        }
-        if(this.config.data.encrypt && !this.config.data.key) {
-            throw new Error('La clave de encriptación es requerida si la encriptación está habilitada.');
-        }
         if(!this.config.debug) {
             this.config.debug = {
-                cnsl: false,
-                strg: false,
-                obsv: false
+                cnsl: false
             };
         }
         if(!this.config.debug.cnsl) {
             this.config.debug.cnsl = false;
         }
-        if(!this.config.debug.strg) {
-            this.config.debug.strg = false;
-        }
-        if(!this.config.debug.obsv) {
-            this.config.debug.obsv = false;
-        }
 
         this.cnsl = new _cnsl(this.config);
-        this.obsv = new _obsv(this.config);
-        this.strg = new _strg(this.config);
     }
 }
