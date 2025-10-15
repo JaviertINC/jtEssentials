@@ -5,7 +5,7 @@ import text from "./text.js";
 import date from "./date.js";
 import util from "./util.js";
 import gen from "./gen.js";
-import _log from "./log.js";
+import log from "./log.js";
 import _obsv from "./obsv.js";
 import _strg from "./strg.js";
 
@@ -49,7 +49,7 @@ export default class jtEssentials {
     public date = date;
     public util = util;
     public gen = gen;
-    public log: _log;
+    public log = log;
     public obsv: _obsv;
     public strg: _strg;
 
@@ -87,7 +87,6 @@ export default class jtEssentials {
         if(!this.config.debug) {
             this.config.debug = {
                 cnsl: false,
-                log: false,
                 strg: false,
                 obsv: false
             };
@@ -95,27 +94,14 @@ export default class jtEssentials {
         if(!this.config.debug.cnsl) {
             this.config.debug.cnsl = false;
         }
-        if(!this.config.debug.log) {
-            this.config.debug.log = false;
-        }
         if(!this.config.debug.strg) {
             this.config.debug.strg = false;
         }
         if(!this.config.debug.obsv) {
             this.config.debug.obsv = false;
         }
-        if(!this.config.log_quantity) {
-            this.config.log_quantity = 100;
-        }
-        if(this.config.log_quantity < 0) {
-            throw new Error('La cantidad de registros no puede ser menor a 0.');
-        }
-        if(this.config.log_quantity > 1000) {
-            console.warn('La cantidad de registros es mayor a 1000. Esto puede afectar el rendimiento de la aplicación.');
-        }
 
         this.cnsl = new _cnsl(this.config);
-        this.log = new _log(this.config);
         this.obsv = new _obsv(this.config);
         this.strg = new _strg(this.config);
     }

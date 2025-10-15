@@ -10,15 +10,14 @@ export interface iConfig {
     },
     debug: {
         cnsl: boolean, // Controla si se muestran los mensajes de consola
-        log: boolean, // Controla si se muetran los logs internos al usar la función log
         strg: boolean, // Controla si se muestran los mensajes de almacenamiento
         obsv: boolean // Controla si se muestran los mensajes de observación
-    },
-    log_quantity: number // Cantidad de logs a guardar en el almacenamiento de la sesión
+    }
 }
 
 export interface iLog {
-    project: iConfig['project'],
+    project: any,
+    quantity: number,
     logs: any[]
 }
 

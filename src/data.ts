@@ -11,12 +11,7 @@ const data = {
      * @param key - La clave de encriptación.
      * @returns El dato convertido a string homogeneizado.
      **/
-    stringify(data: any, encrypt: boolean = false, key: string = ""): string {
-        if (encrypt && key === "") {
-            console.error('javiertinc@essentials • DATA\n\tNo se ha definido la clave de encriptación');
-            return "undefined";
-        }
-
+    stringify(data: any, key: string = ""): string {
         let stringifiedData: { type: string, data: string } = {
             type: 'undefined',
             data: 'undefined'
@@ -62,7 +57,7 @@ const data = {
                 data: 'type not supported (' + typeof data + ')'
             }
         }
-        return encrypt ? this.encrypt(JSON.stringify(stringifiedData), key) : JSON.stringify(stringifiedData);
+        return (key !== "") ? this.encrypt(JSON.stringify(stringifiedData), key) : JSON.stringify(stringifiedData);
     },
 
     /**
@@ -72,14 +67,10 @@ const data = {
      * @param key - La clave de desencriptación.
      * @returns El valor convertido a su tipo original.
      **/
-    parse(data: string, encrypt: boolean = false, key: string = ""): any {
-        if (encrypt && key === "") {
-            console.error('javiertinc@essentials • DATA\n\tNo se ha definido la clave de encriptación');
-            return undefined;
-        }
+    parse(data: string, key: string = ""): any {
 
         if (!data) return undefined;
-        let parsedData: { type: string, data: string } = encrypt ? JSON.parse(this.decrypt(data, key)) : JSON.parse(data);
+        let parsedData: { type: string, data: string } = (key !== "") ? JSON.parse(this.decrypt(data, key)) : JSON.parse(data);
         switch (parsedData.type) {
             case 'object':
                 return JSON.parse(parsedData.data);
