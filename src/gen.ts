@@ -127,9 +127,10 @@ const gen = {
             return sentence;
         }
         let numWords = quantity;
-        const words = [WORDS[0], WORDS[1]];
-        numWords -= 2;
-        for (let ii = 0; ii < numWords; ii += 1) {
+        const words: string[] = [];
+        words[0] = WORDS[0];
+        words[1] = WORDS[1];
+        for (let ii = 2; ii < numWords; ii += 1) {
             const position = Math.floor(Math.random() * WORDS.length);
             const word = WORDS[position];
             if (ii > 0 && words[ii - 1] === word) {
