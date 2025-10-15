@@ -19,7 +19,7 @@ const gen = {
         let vowels = 'aeiou';
         let consonants = 'bcdfghjklmnñpqrstvwxyz';
         let numbers = '0123456789';
-        let special = '!@#$%&*áéíóúäëïöü';
+        let special = '!¡@#$%&*áéíóúäëïöü()"\'-_.:,;';
         let charset = '';
         let key = '';
 
@@ -35,7 +35,7 @@ const gen = {
         config = { ...defaultConfig, ...config };
 
         if (config.hex) {
-            charset = '0123456789abcdef';
+            charset = numbers + 'abcdef';
         } else {
             if (config.vowels) charset += vowels;
             if (config.consonants) charset += consonants;
